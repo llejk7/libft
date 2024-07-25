@@ -6,11 +6,19 @@
 /*   By: krenken <krenken@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 12:27:55 by krenken           #+#    #+#             */
-/*   Updated: 2024/07/25 12:28:43 by krenken          ###   ########.fr       */
+/*   Updated: 2024/07/25 12:51:11 by krenken          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** LIBRARY: N/A
+** SYNOPSIS: output string to standard output
+**
+** DESCRIPTION:
+** 		Outputs the string ’s’ to the standard output.
+*/
 
 void	ft_putstr(char *str)
 {
