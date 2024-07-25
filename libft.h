@@ -6,7 +6,7 @@
 /*   By: krenken <krenken@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:23:54 by krenken           #+#    #+#             */
-/*   Updated: 2024/07/21 18:36:47 by krenken          ###   ########.fr       */
+/*   Updated: 2024/07/25 12:33:51 by krenken          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,11 @@ void		*ft_memcpy(void *to, const void *from, size_t len);
 void		*ft_memmove(void *to, const void *from, size_t n);
 void		*ft_memset(void *s, int c, size_t len);
 void		ft_putchar_fd(char c, int fd);
+void		ft_putchar(int c);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putstr_fd(char *s, int fd);
+void		ft_putstr(char *str);
 char		**ft_split(char const *s, char c);
 char		*ft_strchr(const char *string, int c);
 char		*ft_strcpy(char *dst, const char *src);
