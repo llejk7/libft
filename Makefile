@@ -6,45 +6,55 @@
 #    By: krenken <krenken@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/06 22:13:16 by krenken           #+#    #+#              #
-#    Updated: 2024/07/22 13:58:15 by krenken          ###   ########.fr        #
+#    Updated: 2024/09/12 23:19:14 by krenken          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Makefile for creating a static library
-
-# Variables
+# Standard
 NAME        = libft.a
-SOURCES     = $(shell find . -name "*.c")
-OBJECTS     = $(SOURCES:.c=.o)
-CC          = gcc
-RM          = rm -f
-CFLAGS      = -Wall -Wextra -Werror
 
-# Default target
+# Directories
+INC	:=	inc/
+SRC_DIR	:=	src/
+OBJ_DIR	:=	objs/
+
+# Compiler and Flags
+CC          = gcc
+CFLAGS      = -Wall -Wextra -Werror -I$(INC)
+RM          = rm -f
+AR			= ar rcs	
+
+# Source Files
+FT_IS_DIR	:= $(wildcard $(SRC_DIR)ft_is/*.c)
+FT_MEM_DIR	:= $(wildcard $(SRC_DIR)ft_mem/*.c)
+FT_PRINTF_DIR := $(wildcard $(SRC_DIR)ft_printf/*.c)
+FT_PUT_DIR	:= $(wildcard $(SRC_DIR)ft_put/*.c)
+FT_STR_DIR	:= $(wildcard $(SRC_DIR)ft_str/*.c)
+FT_TO_DIR	:= $(wildcard $(SRC_DIR)ft_to/*.c)
+
+# Concatenate all source files
+SRC := $(FT_IS_DIR) $(FT_MEM_DIR) $(FT_PRINTF_DIR) $(FT_PUT_DIR) $(FT_STR_DIR) $(FT_TO_DIR)
+
+# Object files
+OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
+
+# Build rules
 all: $(NAME)
 
-# Build the static library
-$(NAME): $(OBJECTS)
-	@echo "Creating library $(NAME)"
-	ar rc $(NAME) $(OBJECTS)
+$(NAME): $(OBJ)
+	@$(AR) $(NAME) $(OBJ)
 
-# Compile .c files into .o files
-%.o: %.c
-	@echo "Compiling $<"
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean up object files
 clean:
-	@echo "Cleaning up object files"
-	$(RM) $(OBJECTS)
+	@$(RM) -r $(OBJ_DIR)
+	@$(RM) .cache_exists
 
-# Clean and remove the library
 fclean: clean
-	@echo "Removing library $(NAME)"
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
-# Rebuild everything
 re: fclean all
 
-# Declare non-file targets
 .PHONY: all clean fclean re
