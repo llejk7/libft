@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_specifier_s.c                                   :+:      :+:    :+:   */
+/*   ft_specifier_u.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krenken <krenken@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/23 22:18:06 by krenken           #+#    #+#             */
-/*   Updated: 2024/07/26 17:06:02 by krenken          ###   ########.fr       */
+/*   Created: 2024/07/25 14:11:08 by krenken           #+#    #+#             */
+/*   Updated: 2024/09/13 22:58:31 by krenken          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
-int	ft_printchar(int c)
+int	ft_specifier_u(unsigned int n)
 {
-	write(1, &c, 1);
-	return (1);
-}
+	int	len;
+	int	conv_num;
 
-int	ft_specifier_s(char *str)
-{
-	int	str_len;
-
-	if (!str)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	str_len = 0;
-	while (*str)
-	{
-		str_len += ft_printchar((int)*str);
-		++str;
-	}
-	return (str_len);
+	len = 0;
+	if (n == 0)
+		return (write(1, "0", 1));
+	if (n > 9)
+		len += ft_specifier_d_and_i(n / 10);
+	conv_num = (n % 10) + '0';
+	len += write(1, &conv_num, 1);
+	return (len);
 }

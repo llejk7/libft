@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_specifier_bx.c                                  :+:      :+:    :+:   */
+/*   ft_specifier_s.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krenken <krenken@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 20:13:22 by krenken           #+#    #+#             */
-/*   Updated: 2024/07/26 20:09:36 by krenken          ###   ########.fr       */
+/*   Created: 2024/07/23 22:18:06 by krenken           #+#    #+#             */
+/*   Updated: 2024/09/13 22:58:27 by krenken          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
-int	ft_speficier_bx(unsigned int num)
+int	ft_printchar(int c)
 {
-	int		len;
-	char	*big_hex;
+	write(1, &c, 1);
+	return (1);
+}
 
-	big_hex = "0123456789ABCDEF";
-	len = 0;
-	if (num > 15)
+int	ft_specifier_s(char *str)
+{
+	int	str_len;
+
+	if (!str)
 	{
-		len += ft_speficier_bx(num / 16);
+		write(1, "(null)", 6);
+		return (6);
 	}
-	len += ft_printchar(big_hex[num % 16]);
-	return (len);
+	str_len = 0;
+	while (*str)
+	{
+		str_len += ft_printchar((int)*str);
+		++str;
+	}
+	return (str_len);
 }

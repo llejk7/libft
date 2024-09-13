@@ -6,11 +6,11 @@
 /*   By: krenken <krenken@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:41:30 by krenken           #+#    #+#             */
-/*   Updated: 2024/07/26 20:30:18 by krenken          ###   ########.fr       */
+/*   Updated: 2024/09/13 22:58:33 by krenken          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
 int	ft_speficier_x(unsigned int num)
 {

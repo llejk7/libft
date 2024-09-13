@@ -6,13 +6,13 @@
 /*   By: krenken <krenken@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 12:05:16 by krenken           #+#    #+#             */
-/*   Updated: 2024/07/26 17:05:48 by krenken          ###   ########.fr       */
+/*   Updated: 2024/09/13 23:08:26 by krenken          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
-int	ft_putstr(char *str)
+int	ftt_putstr(char *str)
 {
 	int	i;
 
@@ -37,7 +37,7 @@ int	ft_specifier_d_and_i(int n)
 
 	len = 0;
 	num = ft_itoa(n);
-	len = ft_putstr(num);
+	len = ftt_putstr(num);
 	free(num);
 	return (len);
 }

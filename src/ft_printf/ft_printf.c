@@ -6,11 +6,11 @@
 /*   By: krenken <krenken@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:52:17 by krenken           #+#    #+#             */
-/*   Updated: 2024/07/26 20:28:43 by krenken          ###   ########.fr       */
+/*   Updated: 2024/09/13 22:57:49 by krenken          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
 int	ft_check_format(const char specifier, va_list ap)
 {
