@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: krenken <krenken@student.42.fr>            +#+  +:+       +#+         #
+#    By: kjell <kjell@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/06 22:13:16 by krenken           #+#    #+#              #
-#    Updated: 2024/09/13 22:54:24 by krenken          ###   ########.fr        #
+#    Updated: 2024/12/29 00:38:03 by kjell            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,10 @@ FT_PRINTF_DIR := $(wildcard $(SRC_DIR)ft_printf/*.c)
 FT_PUT_DIR	:= $(wildcard $(SRC_DIR)ft_put/*.c)
 FT_STR_DIR	:= $(wildcard $(SRC_DIR)ft_str/*.c)
 FT_TO_DIR	:= $(wildcard $(SRC_DIR)ft_to/*.c)
+GNL_DIR	:= $(wildcard $(SRC_DIR)get_next_line/*.c)
 
 # Concatenate all source files
-SRC := $(FT_IS_DIR) $(FT_MEM_DIR) $(FT_PRINTF_DIR) $(FT_PUT_DIR) $(FT_STR_DIR) $(FT_TO_DIR)
+SRC := $(FT_IS_DIR) $(FT_MEM_DIR) $(FT_PRINTF_DIR) $(FT_PUT_DIR) $(FT_STR_DIR) $(FT_TO_DIR) $(GNL_DIR)
 
 # Object files
 OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
