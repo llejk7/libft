@@ -6,7 +6,7 @@
 /*   By: krenken <krenken@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:19:55 by krenken           #+#    #+#             */
-/*   Updated: 2024/07/22 18:03:46 by krenken          ###   ########.fr       */
+/*   Updated: 2025/01/04 17:07:19 by krenken          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i] != '\0')
 		i++;
